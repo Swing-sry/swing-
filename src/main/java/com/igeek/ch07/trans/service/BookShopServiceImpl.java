@@ -30,10 +30,10 @@ public class BookShopServiceImpl implements IBookShopService {
     @Override
     public void purchase(String username, int bookId) throws BookStockException, AccountException {
         int price = bookShopDao.selectPrice(bookId);
-        //一旦添加了事务管理，当前两项操作要么都做，要么都不做
-        //买书后，更新库存
+        //一旦添加了事务管理，当前两项操作要么都做要么都不做
+        //买书后更新库存
         bookShopDao.updateStock(bookId);
-        //根据提供会员信息，修改余额
+        //根据提供会员信息修改余额
         bookShopDao.updateBalance(username, price);
     }
 

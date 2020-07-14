@@ -4,12 +4,6 @@ public class MainTest {
 
     public static void main(String[] args) {
 
-        //原来的日志实现
-        /*ICount c = new CountLogImpl();
-        System.out.println(c);
-        int result = c.add(10, 20);
-        System.out.println("-->result : "+result);*/
-
         //通过动态代理做日志实现
         //1.创建目标对象
         ICount target = new CountImpl();

@@ -28,11 +28,10 @@ import java.util.List;
 @Order(2)
 public class LogAspect {
 
-    /**
-     * 公共的切入点表达式
-     * 1.通过@Pointcut("execution()")来声明公共切入点
-     * 2.无需提供方法逻辑，空方法
-     */
+//公共的切入点表达式
+// 1.通过@Pointcut("execution()")来声明公共切入点
+// 2.无需提供方法逻辑，空方法
+
     @Pointcut("execution(public int com.igeek.ch06.aop.aspect.CountImpl.*(..))")
     public void pointCut(){ }
 

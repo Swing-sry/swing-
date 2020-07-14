@@ -6,13 +6,14 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-//@Service标注当前类是一个业务逻辑类，添加至IOC容器中
+//@Service标注当前类是业务逻辑类，添加至IOC容器中
 @Service
 public class DeptService {
 
-    //@Autowired 按照类型自动装配，在IOC容器中查找，若在IOC容器中出现匹配类型不唯一，则会报错
-    //@Resource(name="deptDao") 指定id名称自动装配   @Resource(type=DeptDao.class) 指定类型自动装配
-    //@Autowired
+    //@Autowired 按类型自动装配，在IOC容器中查找
+    //在IOC容器中出现匹配类型不唯一，会报错
+    //@Resource(name="deptDao") 指定id名称自动装配
+    //@Resource(type=DeptDao.class) 指定类型自动装配
     @Resource(name="deptDao")
     private IDao dao;
 

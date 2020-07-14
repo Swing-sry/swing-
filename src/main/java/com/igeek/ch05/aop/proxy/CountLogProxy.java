@@ -6,11 +6,12 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * 计算器-日志实现的动态代理类
- * 动态代理设计模式的原理:
- *      将通过动态代理对象（非业务逻辑）来进行操作目标对象的方法（业务逻辑）逻辑，代理对象可以决定何时何地以及是否来操作
- */
+
+//计算器-日志实现的动态代理类
+//动态代理设计模式的原理:
+//将通过动态代理对象（非业务逻辑）来进行操作目标对象的方法（业务逻辑）逻辑
+//代理对象可以决定何时何地以及是否来操作
+
 public class CountLogProxy {
 
     //目标对象
@@ -49,19 +50,19 @@ public class CountLogProxy {
                 //获得参数列表
                 List<Object> arg = Arrays.asList(args);
                 //前置通知
-                System.out.println("日志追踪：the methods "+methodName+" begin with " + arg);
+                System.out.println("日志追踪 the methods "+methodName+" begin with " + arg);
                 Object result = null;
                 try {
                     //执行目标方法
                     result = method.invoke(target, args);
                     //返回通知
-                    System.out.println("日志追踪：the methods "+methodName+" end with "+result);
+                    System.out.println("日志追踪 the methods "+methodName+" end with "+result);
                 }catch (Exception e){
                     //异常通知
-                    System.out.println("日志追踪： the method "+methodName+" 抛出异常： "+e.getMessage());
+                    System.out.println("日志追踪 the method "+methodName+" 抛出异常： "+e.getMessage());
                 }
                 //后置通知
-                System.out.println("日志追踪：the methods "+methodName+" end with ");
+                System.out.println("日志追踪 the methods "+methodName+" end with ");
                 return result;
             }
         };
